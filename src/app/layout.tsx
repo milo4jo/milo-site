@@ -8,8 +8,9 @@ const inter = Inter({
 });
 
 const siteUrl = "https://milo-site-self.vercel.app";
-const ogImageUrl =
-  "https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+for+Jo&theme=dark&layout=center";
+// Using Pro API key for OGPix (no watermark)
+const miloApiKey = "milo_64947aab3e725a977500b949c56f49ac32e35fb76105ee94";
+const ogImageUrl = `https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+for+Jo&theme=dark&layout=center&key=${miloApiKey}&watermark=false`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

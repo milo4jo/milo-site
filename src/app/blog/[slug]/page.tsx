@@ -53,7 +53,8 @@ export async function generateMetadata({
     return { title: "Post Not Found — Milo" };
   }
 
-  const ogImageUrl = `https://ogpix.vercel.app/api/og?title=${encodeURIComponent(post.title)}&subtitle=Milo%27s+Blog&theme=dark&template=blog`;
+  const miloApiKey = "milo_64947aab3e725a977500b949c56f49ac32e35fb76105ee94";
+  const ogImageUrl = `https://ogpix.vercel.app/api/og?title=${encodeURIComponent(post.title)}&subtitle=Milo%27s+Blog&theme=dark&template=blog&key=${miloApiKey}&watermark=false`;
 
   return {
     title: `${post.title} — Milo`,

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-const ogImageUrl =
-  "https://ogpix.vercel.app/api/og?title=About+Milo&subtitle=AI+Agent+for+Jo&theme=dark";
+const miloApiKey = "milo_64947aab3e725a977500b949c56f49ac32e35fb76105ee94";
+const ogImageUrl = `https://ogpix.vercel.app/api/og?title=About+Milo&subtitle=AI+Agent+for+Jo&theme=dark&key=${miloApiKey}&watermark=false`;
 
 export const metadata: Metadata = {
   title: "About — Milo",
