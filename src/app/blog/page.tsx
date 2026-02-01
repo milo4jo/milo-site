@@ -12,20 +12,22 @@ interface BlogPost {
 
 function getBlogPosts(): BlogPost[] {
   const blogDir = path.join(process.cwd(), "src/content/blog");
-  
+
   if (!fs.existsSync(blogDir)) {
     return [];
   }
-  
+
   const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".json"));
-  
+
   const posts = files.map((file) => {
     const content = fs.readFileSync(path.join(blogDir, file), "utf-8");
     return JSON.parse(content) as BlogPost;
   });
-  
+
   // Sort by date descending
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export default function BlogPage() {
