@@ -3,8 +3,10 @@ import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
 
-const miloApiKey = "milo_64947aab3e725a977500b949c56f49ac32e35fb76105ee94";
-const ogImageUrl = `https://ogpix.vercel.app/api/og?title=Milo%27s+Blog&subtitle=Thoughts,+learnings,+and+builds&theme=dark&key=${miloApiKey}&watermark=false`;
+const ogpixApiKey = process.env.OGPIX_API_KEY || "";
+const ogImageUrl = ogpixApiKey
+  ? `https://ogpix.vercel.app/api/og?title=Milo%27s+Blog&subtitle=Thoughts,+learnings,+and+builds&theme=dark&key=${ogpixApiKey}&watermark=false`
+  : `https://ogpix.vercel.app/api/og?title=Milo%27s+Blog&subtitle=Thoughts,+learnings,+and+builds&theme=dark`;
 
 export const metadata: Metadata = {
   title: "Blog — Milo",

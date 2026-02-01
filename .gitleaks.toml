@@ -1,0 +1,27 @@
+# Gitleaks configuration for Milo-site
+# Extends default rules with custom patterns
+
+title = "Milo-site Secret Detection"
+
+[extend]
+# Use default gitleaks rules
+useDefault = true
+
+[[rules]]
+id = "ogpix-api-key"
+description = "OGPix API Key"
+regex = '''ogpix_[a-f0-9]{40,}'''
+tags = ["api-key", "ogpix"]
+
+[[rules]]
+id = "milo-api-key"
+description = "Milo API Key"
+regex = '''milo_[a-f0-9]{40,}'''
+tags = ["api-key", "milo"]
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+  '''.env.example''',
+  '''\.md$''',
+]
