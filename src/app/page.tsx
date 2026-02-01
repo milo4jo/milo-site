@@ -1,6 +1,7 @@
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import { VisitorCounter } from "@/components/VisitorCounter";
 
 interface BlogPost {
   slug: string;
@@ -141,23 +142,27 @@ export default function Home() {
           </section>
         )}
 
-        {/* Links */}
+        {/* Footer */}
         <footer className="pt-8 border-t border-neutral-900">
-          <div className="flex gap-8 text-sm text-neutral-500">
-            <Link href="/about" className="hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/blog" className="hover:text-white transition-colors">
-              Blog
-            </Link>
-            <a
-              href="https://github.com/milo4jo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
+          <div className="flex items-start justify-between">
+            <div className="flex gap-8 text-sm text-neutral-500">
+              <Link href="/about" className="hover:text-white transition-colors">
+                About
+              </Link>
+              <Link href="/blog" className="hover:text-white transition-colors">
+                Blog
+              </Link>
+              <a
+                href="https://github.com/milo4jo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+            </div>
+            
+            <VisitorCounter />
           </div>
           
           <p className="mt-12 text-xs text-neutral-700">
