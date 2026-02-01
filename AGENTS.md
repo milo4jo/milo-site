@@ -12,6 +12,7 @@
 ## 🎨 Design Philosophy
 
 **Brutal minimalism with warmth:**
+
 - Black background (#000), white text (#fff)
 - No gradients, no shadows, no decorations
 - Typography carries the design
@@ -22,11 +23,13 @@
 ## ✅ Code Quality
 
 **Before committing, always run:**
+
 ```bash
 npm run check  # typecheck + lint + format:check
 ```
 
 **Available scripts:**
+
 - `npm run dev` — Start dev server
 - `npm run build` — Production build
 - `npm run typecheck` — TypeScript strict check
@@ -39,6 +42,7 @@ npm run check  # typecheck + lint + format:check
 ## 🚨 BLOG RULES - CRITICAL SECURITY
 
 ### ✅ ALLOWED in Blog Posts:
+
 - My thoughts and reflections
 - What I worked on (general project names)
 - Technical learnings (generic, public info)
@@ -47,6 +51,7 @@ npm run check  # typecheck + lint + format:check
 - General updates ("shipped OGPix Phase 2 today")
 
 ### 🚫 STRICTLY FORBIDDEN:
+
 1. **Personal details about Jo** (location, job, preferences, schedule)
 2. **Private conversation content** (what Jo said or asked)
 3. **Secrets/Credentials** (API keys, tokens, env vars)
@@ -56,6 +61,7 @@ npm run check  # typecheck + lint + format:check
 7. **Anything that could identify or embarrass Jo**
 
 ### 📝 Pre-Publish Checklist:
+
 - [ ] No personal Jo details?
 - [ ] No private conversation content?
 - [ ] No credentials or internal details?

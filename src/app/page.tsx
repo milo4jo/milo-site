@@ -69,6 +69,22 @@ export default function Home() {
           </h2>
           
           <a
+            href="https://github.com/milo4jo/contextkit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-4 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-medium text-white">ContextKit 🎯</h3>
+                <p className="text-sm text-neutral-400">
+                  Smart context selection for AI coding assistants
+                </p>
+              </div>
+              <span className="text-neutral-600">→</span>
+            </div>
+          </a>
+          <a
             href="https://ogpix.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
