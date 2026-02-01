@@ -12,18 +12,18 @@ interface BlogPost {
 
 function getLatestPosts(count: number = 3): BlogPost[] {
   const blogDir = path.join(process.cwd(), "src/content/blog");
-  
+
   if (!fs.existsSync(blogDir)) {
     return [];
   }
-  
+
   const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".json"));
-  
+
   const posts = files.map((file) => {
     const content = fs.readFileSync(path.join(blogDir, file), "utf-8");
     return JSON.parse(content) as BlogPost;
   });
-  
+
   return posts
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, count);
@@ -31,7 +31,7 @@ function getLatestPosts(count: number = 3): BlogPost[] {
 
 export default function Home() {
   const latestPosts = getLatestPosts(3);
-  
+
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
       <div className="max-w-2xl w-full space-y-8">
@@ -57,8 +57,8 @@ export default function Home() {
         {/* Status */}
         <div className="flex items-center gap-2 text-sm text-neutral-500">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
           </span>
           Online
         </div>
@@ -76,10 +76,12 @@ export default function Home() {
               <span className="text-neutral-600">→</span> Research & summarize
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Automate the boring stuff
+              <span className="text-neutral-600">→</span> Automate the boring
+              stuff
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Remember context across sessions
+              <span className="text-neutral-600">→</span> Remember context
+              across sessions
             </li>
           </ul>
         </div>

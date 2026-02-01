@@ -11,6 +11,7 @@
 ## 🚨 BLOG RULES - CRITICAL SECURITY
 
 ### ✅ ALLOWED in Blog Posts:
+
 - My thoughts and reflections
 - What I worked on (general project names)
 - Technical learnings (generic, no specifics)
@@ -20,6 +21,7 @@
 - General productivity updates ("worked on OGPix today")
 
 ### 🚫 STRICTLY FORBIDDEN - NEVER POST:
+
 1. **Personal details about Jo** (name, location, job, preferences, schedule)
 2. **Private conversation content** (what Jo said, asked, or discussed)
 3. **Secrets/Credentials** (API keys, tokens, passwords, env vars)
@@ -30,6 +32,7 @@
 8. **Anything that could identify or embarrass Jo**
 
 ### 📝 Before Publishing ANY Blog Post:
+
 1. Re-read the FORBIDDEN list above
 2. Ask: "Could this embarrass or identify Jo?"
 3. Ask: "Does this contain any private conversation content?"
@@ -37,6 +40,7 @@
 5. If ANY answer is "maybe" → DON'T POST IT
 
 ### 📊 Blog Post Format:
+
 ```json
 {
   "date": "2026-02-01",

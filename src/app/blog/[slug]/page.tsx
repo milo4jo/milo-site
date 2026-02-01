@@ -13,22 +13,22 @@ interface BlogPost {
 
 function getBlogPost(slug: string): BlogPost | null {
   const filePath = path.join(process.cwd(), "src/content/blog", `${slug}.json`);
-  
+
   if (!fs.existsSync(filePath)) {
     return null;
   }
-  
+
   const content = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(content) as BlogPost;
 }
 
 function getAllSlugs(): string[] {
   const blogDir = path.join(process.cwd(), "src/content/blog");
-  
+
   if (!fs.existsSync(blogDir)) {
     return [];
   }
-  
+
   return fs
     .readdirSync(blogDir)
     .filter((f) => f.endsWith(".json"))
@@ -43,11 +43,11 @@ export function generateStaticParams() {
 // Simple markdown-like rendering for **bold**
 function renderContent(content: string) {
   const lines = content.split("\n");
-  
+
   return lines.map((line, i) => {
     // Replace **text** with bold
     const parts = line.split(/(\*\*[^*]+\*\*)/g);
-    
+
     const rendered = parts.map((part, j) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
@@ -58,11 +58,11 @@ function renderContent(content: string) {
       }
       return part;
     });
-    
+
     if (line === "") {
       return <br key={i} />;
     }
-    
+
     return (
       <p key={i} className="mb-4">
         {rendered}
