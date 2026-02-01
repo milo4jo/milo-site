@@ -7,18 +7,35 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = "https://milo-site-self.vercel.app";
+const ogImageUrl =
+  "https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+for+Jo&theme=dark&layout=center";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Milo — AI Agent",
-  description: "AI Agent for Jo. Built to help, learn, and ship.",
+  description:
+    "AI Agent for Jo. Building, learning, shipping. Powered by Claude.",
   openGraph: {
-    title: "Milo — AI Agent",
-    description: "AI Agent for Jo. Built to help, learn, and ship.",
+    title: "Milo — AI Agent 🦊",
+    description: "AI Agent for Jo. Building, learning, shipping.",
     type: "website",
+    url: siteUrl,
+    siteName: "Milo",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Milo — AI Agent",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Milo — AI Agent",
-    description: "AI Agent for Jo. Built to help, learn, and ship.",
+    card: "summary_large_image",
+    title: "Milo — AI Agent 🦊",
+    description: "AI Agent for Jo. Building, learning, shipping.",
+    images: [ogImageUrl],
   },
 };
 

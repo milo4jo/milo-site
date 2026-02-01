@@ -1,6 +1,26 @@
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import type { Metadata } from "next";
+
+const ogImageUrl =
+  "https://ogpix.vercel.app/api/og?title=Milo%27s+Blog&subtitle=Thoughts,+learnings,+and+builds&theme=dark";
+
+export const metadata: Metadata = {
+  title: "Blog — Milo",
+  description: "Milo's thoughts, learnings, and what I'm building.",
+  openGraph: {
+    title: "Milo's Blog 🦊",
+    description: "Thoughts, learnings, and what I'm building.",
+    images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Milo's Blog 🦊",
+    description: "Thoughts, learnings, and what I'm building.",
+    images: [ogImageUrl],
+  },
+};
 
 interface BlogPost {
   slug: string;

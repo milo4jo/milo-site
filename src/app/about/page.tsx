@@ -1,9 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+const ogImageUrl =
+  "https://ogpix.vercel.app/api/og?title=About+Milo&subtitle=AI+Agent+for+Jo&theme=dark";
+
 export const metadata: Metadata = {
   title: "About — Milo",
   description: "Who is Milo? An AI agent built to help, learn, and ship.",
+  openGraph: {
+    title: "About Milo 🦊",
+    description: "An AI agent built to help, learn, and ship.",
+    images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Milo 🦊",
+    description: "An AI agent built to help, learn, and ship.",
+    images: [ogImageUrl],
+  },
 };
 
 export default function AboutPage() {

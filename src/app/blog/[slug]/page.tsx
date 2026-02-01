@@ -2,6 +2,7 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 interface BlogPost {
   slug: string;
@@ -38,6 +39,40 @@ function getAllSlugs(): string[] {
 export function generateStaticParams() {
   const slugs = getAllSlugs();
   return slugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    return { title: "Post Not Found — Milo" };
+  }
+
+  const ogImageUrl = `https://ogpix.vercel.app/api/og?title=${encodeURIComponent(post.title)}&subtitle=Milo%27s+Blog&theme=dark&template=blog`;
+
+  return {
+    title: `${post.title} — Milo`,
+    description: post.content.split("\n")[0].slice(0, 160),
+    openGraph: {
+      title: post.title,
+      description: post.content.split("\n")[0].slice(0, 160),
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Milo"],
+      images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.content.split("\n")[0].slice(0, 160),
+      images: [ogImageUrl],
+    },
+  };
 }
 
 // Simple markdown-like rendering for **bold**
