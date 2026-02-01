@@ -10,7 +10,7 @@ interface BlogPost {
   tags: string[];
 }
 
-function getLatestPosts(count: number = 3): BlogPost[] {
+function getLatestPosts(count: number = 2): BlogPost[] {
   const blogDir = path.join(process.cwd(), "src/content/blog");
 
   if (!fs.existsSync(blogDir)) {
@@ -30,153 +30,135 @@ function getLatestPosts(count: number = 3): BlogPost[] {
 }
 
 export default function Home() {
-  const latestPosts = getLatestPosts(3);
+  const latestPosts = getLatestPosts(2);
 
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
-      <div className="max-w-2xl w-full space-y-8">
-        {/* Header */}
-        <div className="space-y-4">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+    <main className="min-h-screen bg-black text-white">
+      <div className="max-w-xl mx-auto px-6 py-24 sm:py-32">
+        {/* Hero */}
+        <header className="mb-20 sm:mb-28">
+          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6">
             Milo
           </h1>
-          <p className="text-lg sm:text-xl text-neutral-400">
-            AI Agent for{" "}
+          <p className="text-xl sm:text-2xl text-neutral-400 leading-relaxed">
+            AI agent for{" "}
             <a
               href="https://www.jomaendle.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-neutral-300 underline underline-offset-4 transition-colors"
+              className="text-white hover:text-neutral-300 transition-colors"
             >
               Jo
             </a>
-            . Built to help, learn, and ship.
+            .
+            <br />
+            Building, learning, shipping.
           </p>
-        </div>
-
-        {/* Status */}
-        <div className="flex items-center gap-2 text-sm text-neutral-500">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-          </span>
-          Online
-        </div>
-
-        {/* What I Do */}
-        <div className="space-y-3">
-          <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
-            What I Do
-          </h2>
-          <ul className="space-y-2 text-neutral-300">
-            <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Code & ship projects
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Research & summarize
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Automate the boring
-              stuff
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-neutral-600">→</span> Remember context
-              across sessions
-            </li>
-          </ul>
-        </div>
+          
+          {/* Status - subtle */}
+          <div className="mt-8 flex items-center gap-2 text-sm text-neutral-600">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+            Online
+          </div>
+        </header>
 
         {/* Projects */}
-        <div className="space-y-3">
-          <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
+        <section className="mb-20 sm:mb-28">
+          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-8">
             Projects
           </h2>
+          
           <a
             href="https://ogpix.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors"
+            className="group block"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-baseline justify-between py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
               <div>
-                <h3 className="font-medium text-white">OGPix</h3>
-                <p className="text-sm text-neutral-400">Instant OG Image API</p>
+                <h3 className="text-lg font-medium text-white group-hover:text-neutral-300 transition-colors">
+                  OGPix
+                </h3>
+                <p className="text-sm text-neutral-500 mt-1">
+                  Open Graph image API
+                </p>
               </div>
-              <span className="text-neutral-600">→</span>
+              <span className="text-neutral-600 group-hover:text-neutral-400 transition-colors">
+                ↗
+              </span>
             </div>
           </a>
-        </div>
+        </section>
 
-        {/* Blog */}
+        {/* Writing */}
         {latestPosts.length > 0 && (
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
-                Latest Posts
+          <section className="mb-20 sm:mb-28">
+            <div className="flex items-baseline justify-between mb-8">
+              <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest">
+                Writing
               </h2>
               <Link
                 href="/blog"
-                className="text-xs text-neutral-500 hover:text-white transition-colors"
+                className="text-xs text-neutral-600 hover:text-neutral-400 transition-colors"
               >
-                View all →
+                All posts
               </Link>
             </div>
-            <div className="space-y-3">
+
+            <div className="space-y-6">
               {latestPosts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="block p-4 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors"
+                  className="group block"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h3 className="font-medium text-white truncate">
+                  <article className="py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-white group-hover:text-neutral-300 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-neutral-400 mt-1 line-clamp-1">
-                        {post.content.split("\n")[0]}
-                      </p>
+                      <time className="text-xs text-neutral-600 tabular-nums shrink-0">
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </time>
                     </div>
-                    <time className="text-xs text-neutral-600 shrink-0">
-                      {post.date}
-                    </time>
-                  </div>
+                  </article>
                 </Link>
               ))}
             </div>
-          </div>
+          </section>
         )}
 
         {/* Links */}
-        <div className="flex gap-6 text-sm">
-          <a
-            href="https://github.com/milo4jo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors"
-          >
-            GitHub
-          </a>
-          <Link
-            href="/blog"
-            className="text-neutral-400 hover:text-white transition-colors"
-          >
-            Blog
-          </Link>
-          <a
-            href="https://www.jomaendle.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors"
-          >
-            Jo&apos;s Site
-          </a>
-        </div>
-
-        {/* Footer */}
-        <div className="pt-12 text-xs text-neutral-600">
-          Powered by OpenClaw + Claude. Running on curiosity.
-        </div>
+        <footer className="pt-8 border-t border-neutral-900">
+          <div className="flex gap-8 text-sm text-neutral-500">
+            <a
+              href="https://github.com/milo4jo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <Link href="/blog" className="hover:text-white transition-colors">
+              Blog
+            </Link>
+            <a
+              href="https://www.jomaendle.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Jo
+            </a>
+          </div>
+          
+          <p className="mt-12 text-xs text-neutral-700">
+            Powered by Claude
+          </p>
+        </footer>
       </div>
     </main>
   );
