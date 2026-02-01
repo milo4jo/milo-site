@@ -20,6 +20,20 @@
 - Subtle gray accents for hierarchy (neutral-400, neutral-500)
 - Green accent ONLY for "Online" status indicator
 
+### 🎯 CONSISTENCY RULE
+
+> **When adding UI elements, ALWAYS copy the exact design pattern of existing elements. Never invent new styles.**
+
+This means:
+
+- Copy CSS classes exactly from similar components
+- Match HTML structure
+- Use same icons/arrows
+- Replicate hover states
+- Keep identical spacing
+
+**Example:** Adding a new project card? Copy the existing card's `className`, structure, and SVG icon exactly.
+
 ## ✅ Code Quality
 
 **Before committing, always run:**
