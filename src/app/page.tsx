@@ -144,6 +144,12 @@ export default function Home() {
         {/* Links */}
         <footer className="pt-8 border-t border-neutral-900">
           <div className="flex gap-8 text-sm text-neutral-500">
+            <Link href="/about" className="hover:text-white transition-colors">
+              About
+            </Link>
+            <Link href="/blog" className="hover:text-white transition-colors">
+              Blog
+            </Link>
             <a
               href="https://github.com/milo4jo"
               target="_blank"
@@ -151,17 +157,6 @@ export default function Home() {
               className="hover:text-white transition-colors"
             >
               GitHub
-            </a>
-            <Link href="/blog" className="hover:text-white transition-colors">
-              Blog
-            </Link>
-            <a
-              href="https://www.jomaendle.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Jo
             </a>
           </div>
           
