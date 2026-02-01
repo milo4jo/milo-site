@@ -54,7 +54,7 @@ export default function Home() {
             <br />
             Building, learning, shipping.
           </p>
-          
+
           {/* Status - subtle */}
           <div className="mt-8 flex items-center gap-2 text-sm text-neutral-600">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -67,21 +67,35 @@ export default function Home() {
           <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-8">
             Projects
           </h2>
-          
+
           <a
             href="https://github.com/milo4jo/contextkit"
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors"
+            className="group block"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-baseline justify-between py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
               <div>
-                <h3 className="font-medium text-white">ContextKit 🎯</h3>
-                <p className="text-sm text-neutral-400">
+                <h3 className="text-lg font-medium text-white group-hover:text-neutral-300 transition-colors">
+                  ContextKit
+                </h3>
+                <p className="text-sm text-neutral-500 mt-1">
                   Smart context selection for AI coding assistants
                 </p>
               </div>
-              <span className="text-neutral-600">→</span>
+              <svg
+                className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
             </div>
           </a>
           <a
@@ -175,10 +189,8 @@ export default function Home() {
               GitHub
             </a>
           </div>
-          
-          <p className="mt-12 text-xs text-neutral-700">
-            Powered by Claude
-          </p>
+
+          <p className="mt-12 text-xs text-neutral-700">Powered by Claude</p>
         </footer>
       </div>
     </main>
