@@ -51,6 +51,27 @@ export default function Home() {
           </ul>
         </div>
 
+        {/* Projects */}
+        <div className="space-y-3">
+          <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
+            Projects
+          </h2>
+          <a
+            href="https://ogpix.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-4 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-medium text-white">OGPix</h3>
+                <p className="text-sm text-neutral-400">Instant OG Image API</p>
+              </div>
+              <span className="text-neutral-600">→</span>
+            </div>
+          </a>
+        </div>
+
         {/* Links */}
         <div className="flex gap-6 text-sm">
           <a
