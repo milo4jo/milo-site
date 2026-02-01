@@ -83,9 +83,19 @@ export default function Home() {
                   Open Graph image API
                 </p>
               </div>
-              <span className="text-neutral-600 group-hover:text-neutral-400 transition-colors">
-                ↗
-              </span>
+              <svg
+                className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
             </div>
           </a>
         </section>
